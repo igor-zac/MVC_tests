@@ -1,9 +1,13 @@
 <?php
 
-require_once ("Modele.php");
+require_once "Controller/classes/MySmarty.class.php";
+require_once "Model/modele.php";
 
-$page = (!empty($_GET['page']) ? intval($_GET['page']) : 1);
-$myCatalogue = getCatalogue($page);
+$myCM = new CatalogueManager();
+$myCatalogue= $myCM->getCatalogue(1);
 
-require_once ("catalogueView.php");
+$smarty = new MySmarty();
+$smarty->assign('catalogue', $myCatalogue->getListeArticles());
 
+
+$smarty->display('Catalogue/catalogue.tpl');

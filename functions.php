@@ -1,20 +1,6 @@
 <?php
 
 
-function displayCat(Catalogue $catalogue, $currentPage){
-    foreach ($catalogue->getListeArticles() as $article){
-        displayArticle($article);
-    }
-    ?>
-    <div class="bouton">
-        <button type="submit" name="add" class="btn btn-primary">Ajouter au panier</button>
-    </div>
-
-    <?php
-
-//    displayNavPages($catalogue->getNbPages(), $currentPage);
-}
-
 function displayNavPages($nbPages, $currentPage){
     ?>
     <ul class="nav justify-content-center">
@@ -43,48 +29,6 @@ function displayNavPages($nbPages, $currentPage){
     <?php
 }
 
-function displayArticle(Article $article){
-    $id_article = $article->getId();
-    $nom_fichier = $article->getImage();
-    $nom_article = $article->getNom();
-    $prix = $article->getPrix()/100;
-    $poids = $article->getPoids()/1000;
-    ?>
-
-    <div class="article">
-        <div>
-            <img class="image_article" src="img/<?= $nom_fichier ?>" alt="L'image de mon article">
-        </div>
-
-        <div class="infosArticles">
-            <p class="nomArticle"><?= $nom_article ?></p>
-            <p class="poidsArticle">Poids : <?= $poids ?> kg</p>
-            <?php
-            if (get_class($article) == 'Chaussure'){
-                $article->afficherPointures();
-            } elseif (get_class($article) == 'Vetement'){
-                $article->afficherTailles();
-            }
-            ?>
-
-        </div>
-
-        <div class="prix">
-            <p><?= $prix ?> €</p>
-        </div>
-
-
-            <div class="check">
-                <input type="checkbox" name="articles[]" value="<?= $id_article ?>"
-<!---->
-
-            </div>
-
-
-    </div>
-
-    <?php
-}
 
 function displayClient(Client $client){
     $prenom = $client->getPrenom();
