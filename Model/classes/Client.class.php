@@ -37,13 +37,13 @@ class Client {
         return $this->ville;
     }
 
-    public function getInfos(){
-        return array(
-            "nom" => $this->nom,
-            "prenom" => $this->prenom,
-            "adresse" => $this->adresse,
-            "cp" => $this->cp,
-            "ville" => $this->ville
-        );
-    }
+//    public function getInfos(){
+//        return array(
+//            "nom" => $this->nom,
+//            "prenom" => $this->prenom,
+//            "adresse" => $this->adresse,
+//            "cp" => $this->cp,
+//            "ville" => $this->ville
+//        );
+//    }
 }

@@ -30,48 +30,48 @@ function displayNavPages($nbPages, $currentPage){
 }
 
 
-function displayClient(Client $client){
-    $prenom = $client->getPrenom();
-    $nom = $client->getNom();
-    $adresse = $client->getAdresse();
-    $cp = $client->getCP();
-    $ville = $client->getVille();
-
-    ?>
-<tr>
-    <td><?= $prenom ?></td>
-    <td><?= $nom ?></td>
-    <td><?= $adresse ?></td>
-    <td><?= $cp ?></td>
-    <td><?= $ville ?></td>
-</tr>
+//function displayClient(Client $client){
+//    $prenom = $client->getPrenom();
+//    $nom = $client->getNom();
+//    $adresse = $client->getAdresse();
+//    $cp = $client->getCP();
+//    $ville = $client->getVille();
+//
+//    ?>
+<!--<tr>-->
+<!--    <td>--><?//= $prenom ?><!--</td>-->
+<!--    <td>--><?//= $nom ?><!--</td>-->
+<!--    <td>--><?//= $adresse ?><!--</td>-->
+<!--    <td>--><?//= $cp ?><!--</td>-->
+<!--    <td>--><?//= $ville ?><!--</td>-->
+<!--</tr>-->
 <?php
-}
+//}
 
-function displayListeClients(ListeClients $listeClients){
-
-
-    ?>
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th scope="col">Prenom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Adresse</th>
-                <th scope="col">Code Postal</th>
-                <th scope="col">Ville</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($listeClients->getListeClients() as $client){
-            displayClient($client);
-        }
-        ?>
-        </tbody>
-    </table>
+//function displayListeClients(ListeClients $listeClients){
+//
+//
+//    ?>
+<!--    <table class="table table-dark">-->
+<!--        <thead>-->
+<!--            <tr>-->
+<!--                <th scope="col">Prenom</th>-->
+<!--                <th scope="col">Nom</th>-->
+<!--                <th scope="col">Adresse</th>-->
+<!--                <th scope="col">Code Postal</th>-->
+<!--                <th scope="col">Ville</th>-->
+<!--            </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        --><?php
+//        foreach ($listeClients->getListeClients() as $client){
+//            displayClient($client);
+//        }
+//        ?>
+<!--        </tbody>-->
+<!--    </table>-->
 <?php
-}
+//}
 
 function displayPanier(Panier $panier){
     $bdd = dbConnect();
