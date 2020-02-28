@@ -11,12 +11,12 @@
         {foreach from=$catalogue key=key item=article}
             <div class="article">
                 <div>
-                    <img class="image_article" src="Content/img/{$article->getImage()}" alt="L'image de mon article">
+                    <img class="image_article" src="Content/img/{$article->getNomImage()}" alt="L'image de mon article">
                 </div>
 
                 <div class="infosArticles">
                     <p class="nomArticle">{$article->getNom()}</p>
-                    <p class="poidsArticle">Poids : {$article->getPoids()/1000} kg</p>
+                    <p class="poidsArticle">Poids : {$article->getPoids()} kg</p>
 
 {*            {if (get_class($article) == 'Chaussure'){*}
 {*                $article->afficherPointures();*}
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="prix">
-                    <p>{$article->getPrix()/100} €</p>
+                    <p>{$article->getPrix()} €</p>
                 </div>
 
 

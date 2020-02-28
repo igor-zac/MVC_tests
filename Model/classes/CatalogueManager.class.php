@@ -1,40 +1,60 @@
 <?php
-
+require_once "Model.class.php";
+require_once "Article.class.php";
 
 class CatalogueManager extends Model
 {
-    public function getCatalogue($currentPage)
+    public function getCatPage($page)
     {
-        $start = ($currentPage - 1) * Catalogue::$PAGE_LENGTH;
+        $limit = Catalogue::$PAGE_LENGTH;
 
-// #################### REQUETE SQL NON SECURE ###############################
-//        $sql = 'SELECT id, nom, nomImage, poids, prix, description, stock, dispo, idCategorie
-//            FROM produit ORDER BY id LIMIT '.Catalogue::$PAGE_LENGTH.' OFFSET '.$start;
+        if(is_int($page)){
+            $currentPage = $page;
+        } else {
+            $currentPage = 1;
+        }
 
-//        $sql = 'SELECT id, nom, nomImage, poids, prix, description, stock, dispo, idCategorie
-//            FROM produit ORDER BY id LIMIT :limite OFFSET :start';
-//
-//        $param = array("limite" => Catalogue::$PAGE_LENGTH, "start" => $start);
+        $offset = ($currentPage - 1) * Catalogue::$PAGE_LENGTH;
 
-        $sql = 'SELECT id, nom, nomImage, poids, prix, description, stock, dispo, idCategorie
-            FROM produit';
-
-
-        $req = $this->executeRequest($sql);
+        $list = $this->generatePage($limit, $offset);
 
 
 
         $productList = [];
 
-        while ($product = $req->fetch()) {
+        foreach($list as $productData) {
 //            if ($product['idCategorie'] == 5) {
 //                $productList[] = new Chaussure($product);
 //            } elseif ($product['idCategorie'] == 6) {
 //                $productList[] = new Vetement($product);
 //            } else {
-                $productList[] = new Article($product);
+            $product = new Article();
+
+            $this->hydrateObject($product, $productData);
+            $productList[] = $product;
             }
 //        }
-        return new Catalogue($productList);
+
+        $catLength = ceil($this->numberOfPages(Catalogue::$PAGE_LENGTH)/Catalogue::$PAGE_LENGTH);
+        return new Catalogue($productList, $catLength);
     }
+
+    private function generatePage($limit, $offset){
+        $sql = 'SELECT id, nom, nomImage, poids, prix, description, stock, dispo, idCategorie
+            FROM produit ORDER BY id LIMIT '.$limit.' OFFSET '.$offset;
+
+        $req = $this->executeRequest($sql);
+
+        return $req->fetchAll();
+    }
+
+    private function numberOfPages(){
+        $sql = 'SELECT count(id) as nb FROM produit';
+
+        $req = $this->executeRequest($sql);
+
+        return $req->fetch()['nb'];
+
+    }
+
 }

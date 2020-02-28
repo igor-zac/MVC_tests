@@ -1,3 +1,5 @@
+<!doctype html>
+
 <html lang="fr">
     <head>
         <meta charset="utf-8">
@@ -13,13 +15,13 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-right justify-content-end">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Clients</a>
+                    <a class="nav-link" href="index.php?action=client">Clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Catalogue</a>
+                    <a class="nav-link" href="index.php">Catalogue</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Mon panier</a>
+                    <a class="nav-link" href="index.php?action=cart">Mon panier</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Vider le panier</a>

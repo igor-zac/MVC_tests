@@ -43,17 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 $_SESSION['panier'] = $panier;
 ?>
 
-<!doctype html>
-
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>Mon panier</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-    <?php include("entete.php"); ?>
         <!-- Inclus le fichier functions.php et appelle ses fonctions pour générer les blocs article de la page -->
 <!--        <form action="--><?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?><!--" method="get" class="block">-->
 

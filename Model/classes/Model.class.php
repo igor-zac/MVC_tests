@@ -1,14 +1,11 @@
 <?php
 
-
 abstract class Model
 {
     private $bdd;
 
     protected function executeRequest($sql, $params=null)
     {
-
-
 
         if($params == null)
         {
@@ -25,7 +22,9 @@ abstract class Model
         return $result;
     }
 
-    private function getBdd(){
+
+    private function getBdd()
+    {
         if($this->bdd == null) {
             try
             {
@@ -39,4 +38,16 @@ abstract class Model
 
         return $this->bdd;
     }
+
+    protected function hydrateObject($object, $data)
+    {
+        foreach ($data as $key => $value){
+            $method = 'set'.ucfirst($key);
+
+            if(method_exists($object, $method)){
+                $object->$method($value);
+            }
+        }
+    }
+
 }

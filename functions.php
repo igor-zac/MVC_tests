@@ -73,65 +73,65 @@ function displayNavPages($nbPages, $currentPage){
 <?php
 //}
 
-function displayPanier(Panier $panier){
-    $bdd = dbConnect();
-
-    foreach($panier->getContenuPanier() as $idArticle => $quantite) {
-
-
-        $sql = 'SELECT nom, nomImage, poids, idCategorie, prix FROM produit WHERE id='.$idArticle;
-        $req = $bdd->query($sql);
-        $article = $req->fetch();
-
-
-        ?>
-
-        <div class="article">
-            <div>
-                <img class="image_article" src="img/<?= $article['nomImage'] ?>" alt="L'image de mon article">
-            </div>
-
-            <div class="infosArticles">
-                <p class="nomArticle"><?= $article['nom'] ?></p>
-                <p class="poidsArticle">Poids : <?= $article['poids']/1000 ?> kg</p>
-
-            </div>
-
-            <div class="prix">
-                <p><?= $article['prix']/100 ?> €</p>
-            </div>
-
-
-            <!--        /*Si $check est mis à true, on génère une checkbox dans le bloc article-->
-            <!--        Sinon, on est dans le panier, on affiche la quantité, le bouton de suppression de l'article et les-->
-            <!--        éventuelles erreurs */-->
-
-            <div class="quantities d-flex flex-column">
-                <div class="d-flex flex-column">
-                    <div class="quantity d-flex flex-row">
-                        <label>Quantité :
-                            <input type="number" name="quantites[<?= $idArticle ?>]" value="<?= $quantite ?>">
-
-                        </label>
-
-
-                    </div>
-<!--                    <p class="error">--><?php //echo htmlspecialchars($errTable[$nom_article]) ?><!--</p>-->
-
-                </div>
-
-                    <button type="submit" name="update" value="<?= $idArticle ?>" class="btn btn-secondary mb-1">Recalculer</button>
-
-                    <button type="submit" name="delete" value="<?= $idArticle ?>" class="btn btn-danger">Supprimer
-                </button>
-            </div>
-
-
-        </div>
-
-        <?php
-    }
-}
+//function displayPanier(Panier $panier){
+//    $bdd = dbConnect();
+//
+//    foreach($panier->getContenuPanier() as $idArticle => $quantite) {
+//
+//
+//        $sql = 'SELECT nom, nomImage, poids, idCategorie, prix FROM produit WHERE id='.$idArticle;
+//        $req = $bdd->query($sql);
+//        $article = $req->fetch();
+//
+//
+//        ?>
+<!---->
+<!--        <div class="article">-->
+<!--            <div>-->
+<!--                <img class="image_article" src="img/--><?//= $article['nomImage'] ?><!--" alt="L'image de mon article">-->
+<!--            </div>-->
+<!---->
+<!--            <div class="infosArticles">-->
+<!--                <p class="nomArticle">--><?//= $article['nom'] ?><!--</p>-->
+<!--                <p class="poidsArticle">Poids : --><?//= $article['poids']/1000 ?><!-- kg</p>-->
+<!---->
+<!--            </div>-->
+<!---->
+<!--            <div class="prix">-->
+<!--                <p>--><?//= $article['prix']/100 ?><!-- €</p>-->
+<!--            </div>-->
+<!---->
+<!---->
+<!--                    /*Si $check est mis à true, on génère une checkbox dans le bloc article-->
+<!--                    Sinon, on est dans le panier, on affiche la quantité, le bouton de suppression de l'article et les-->
+<!--                    éventuelles erreurs */-->
+<!---->
+<!--            <div class="quantities d-flex flex-column">-->
+<!--                <div class="d-flex flex-column">-->
+<!--                    <div class="quantity d-flex flex-row">-->
+<!--                        <label>Quantité :-->
+<!--                            <input type="number" name="quantites[--><?//= $idArticle ?><!--]" value="--><?//= $quantite ?><!--">-->
+<!---->
+<!--                        </label>-->
+<!---->
+<!---->
+<!--                    </div>-->
+<!--                   <p class="error">--><?php ////echo htmlspecialchars($errTable[$nom_article]) ?><!--</p>-->
+<!---->
+<!--                </div>-->
+<!---->
+<!--                    <button type="submit" name="update" value="--><?//= $idArticle ?><!--" class="btn btn-secondary mb-1">Recalculer</button>-->
+<!---->
+<!--                    <button type="submit" name="delete" value="--><?//= $idArticle ?><!--" class="btn btn-danger">Supprimer-->
+<!--                </button>-->
+<!--            </div>-->
+<!---->
+<!---->
+<!--        </div>-->
+<!---->
+<!--        --><?php
+//    }
+//}
 
 
 

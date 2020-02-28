@@ -1,5 +1,5 @@
 <?php
-require("Lib/Smarty3/libs/Smarty.class.php");
+require_once("Lib/Smarty3/libs/Smarty.class.php");
 
 class MySmarty extends Smarty {
 

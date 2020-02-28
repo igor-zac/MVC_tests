@@ -4,7 +4,7 @@ spl_autoload_register('myAutoLoader');
 function myAutoLoader($className){
     $path = 'classes/';
 
-    require $path.$className.'.class.php';
+    require_once $path.$className.'.class.php';
 }
 //----------------------------------------------------------------------------------------------------------
 

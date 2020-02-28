@@ -1,5 +1,5 @@
 <?php
-
+require_once "Client.class.php";
 
 class ClientManager extends Model
 {
@@ -18,5 +18,7 @@ class ClientManager extends Model
 //        }
         return new ClientList($clientList);
     }
+
+
 
 }

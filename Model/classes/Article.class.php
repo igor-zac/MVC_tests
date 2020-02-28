@@ -1,56 +1,107 @@
 <?php
 class Article {
+
+
     private $nom;
     private $description;
     private $prix;
-    private $image;
+    private $nomImage;
     private $poids;
     private $stock;
-    private $disponibilite;
+    private $dispo;
     private $id;
+    private $idCategorie;
 
-    public function __construct($entreeSQL)
+
+    public function getNom()
     {
-        $this->nom = $entreeSQL['nom'];
-        $this->description = $entreeSQL['description'];
-        $this->prix = $entreeSQL['prix'];
-        $this->image = $entreeSQL['nomImage'];
-        $this->poids = $entreeSQL['poids'];
-        $this->stock = $entreeSQL['stock'];
-        $this->disponibilite = $entreeSQL['dispo'];
-        $this->id = $entreeSQL['id'];
-    }
-
-    public function getNom() {
         return $this->nom;
     }
 
-    public function getDescription() {
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getPrix() {
-        return $this->prix;
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
-    public function getImage() {
-        return $this->image;
+    public function getPrix()
+    {
+        return $this->prix/100;
     }
 
-    public function getPoids() {
-        return $this->poids;
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
     }
 
-    public function getStock() {
+    public function getPoids()
+    {
+        return $this->poids/1000;
+    }
+
+    public function setPoids($poids)
+    {
+        $this->poids = $poids;
+    }
+
+    public function getStock()
+    {
         return $this->stock;
     }
 
-    public function getDispo() {
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getNomImage()
+    {
+        return $this->nomImage;
+    }
+
+    public function setNomImage($nomImage)
+    {
+        $this->nomImage = $nomImage;
+    }
+
+    public function getDispo()
+    {
         return $this->disponibilite;
     }
 
-    public function getId() {
-        return $this->id;
+    public function setDispo($dispo)
+    {
+        $this->dispo = $dispo;
     }
+
+    public function getIdCategorie()
+    {
+        return $this->idCategorie;
+    }
+
+    public function setIdCategorie($idCategorie)
+    {
+        $this->idCategorie = $idCategorie;
+    }
+
 
 }
